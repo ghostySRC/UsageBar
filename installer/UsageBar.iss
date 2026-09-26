@@ -1,5 +1,5 @@
 #ifndef MyAppVersion
-  #define MyAppVersion "1.0.0"
+  #define MyAppVersion "1.0.1"
 #endif
 
 #define MyAppName "UsageBar"
@@ -36,7 +36,7 @@ Name: "startup"; Description: "Start UsageBar when I sign in to Windows"; Flags:
 Name: "desktopicon"; Description: "Create a desktop shortcut"; Flags: unchecked
 
 [Files]
-Source: "..\artifacts\publish\UsageBar.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\artifacts\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\UsageBar"; Filename: "{app}\UsageBar.exe"; IconFilename: "{app}\UsageBar.exe"

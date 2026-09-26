@@ -25,7 +25,7 @@ dotnet run --project tools/UsageBar.ProviderProbe
 Build the self-contained app and installer with Inno Setup 6 installed:
 
 ```powershell
-./tools/Build-Release.ps1 -Version 1.0.0
+./tools/Build-Release.ps1 -Version 1.0.1
 ```
 
 Please keep changes focused, preserve secret-safe logging, and add parser or

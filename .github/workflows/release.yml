@@ -36,11 +36,11 @@ jobs:
 
           ### Install
 
-          Download and run `UsageBar-Setup.exe`. The per-user installer does not require administrator rights.
+          Download and run `UsageBar-Setup.exe`. The per-user installer does not require administrator rights. `UsageBar-win-x64.zip` is the portable self-contained build.
 
           ### Provider notes
 
           Codex usage comes from the local Codex App Server. Antigravity usage comes from its local language-server quota route, which is not a documented stable API and can change with an Antigravity update.
           "@
           Set-Content -Path release-notes.md -Value $notes -Encoding utf8
-          gh release create $tag artifacts/installer/UsageBar-Setup.exe artifacts/publish/UsageBar.exe --title "UsageBar $tag" --notes-file release-notes.md
+          gh release create $tag artifacts/installer/UsageBar-Setup.exe artifacts/installer/UsageBar-win-x64.zip --title "UsageBar $tag" --notes-file release-notes.md

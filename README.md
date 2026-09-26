@@ -17,6 +17,8 @@ UsageBar is a small Windows 11 tray utility that shows the real five-hour and we
 
 Download **[UsageBar-Setup.exe](https://github.com/ghostySRC/UsageBar/releases/latest/download/UsageBar-Setup.exe)** from the latest release. The per-user installer does not require administrator access and includes the .NET runtime. Windows may show a SmartScreen warning because this open-source build is not code-signed.
 
+For a portable install, download `UsageBar-win-x64.zip`, extract the complete folder, and run `UsageBar.exe` from it. Keep the other files beside the executable.
+
 To update, download and run the newer setup file. It updates the app in place and keeps your local settings and cache. Uninstall UsageBar from **Settings → Apps → Installed apps**.
 
 ## Features
@@ -85,7 +87,7 @@ Requirements: Windows 11 x64, .NET 10 SDK, and Inno Setup 6 (only to build the i
 dotnet restore UsageBar.sln
 dotnet build UsageBar.sln --configuration Release --no-restore
 dotnet test UsageBar.sln --configuration Release --no-build
-./tools/Build-Release.ps1 -Version 1.0.0
+./tools/Build-Release.ps1 -Version 1.0.1
 ```
 
 The build script writes a self-contained app and setup program beneath `artifacts/`. Run `dotnet run --project tools/UsageBar.ProviderProbe` to check your live provider connections locally. That diagnostic prints real account percentages and reset times to the console; do not paste its output into a public issue.
