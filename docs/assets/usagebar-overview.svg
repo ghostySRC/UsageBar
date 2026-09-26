@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">UsageBar interface illustration</title>
+  <desc id="desc">A clearly labeled UI illustration showing Codex, Antigravity, the compact widget, and the details popup with demo values.</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0b1220" flood-opacity=".14"/></filter>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4f7fb"/><stop offset="1" stop-color="#e9eef5"/></linearGradient>
+    <style>
+      .ui{font-family:'Segoe UI',Arial,sans-serif;fill:#20242b}.muted{fill:#6b7280}.small{font-size:14px}.label{font-size:16px;font-weight:600}.value{font-size:22px;font-weight:650}.title{font-size:30px;font-weight:650}.barbg{fill:#dce2eb}.blue{fill:#3478e5}.teal{fill:#3b9d91}.card{fill:#fff;stroke:#e4e8ef;stroke-width:1}
+    </style>
+  </defs>
+  <rect width="1280" height="760" rx="28" fill="url(#page)"/>
+  <text x="54" y="66" class="ui title">UsageBar</text>
+  <text x="54" y="95" class="ui muted" font-size="16">A compact companion for signed-in usage limits</text>
+  <rect x="54" y="118" width="1172" height="42" rx="10" fill="#fff4d6" stroke="#f3d589"/>
+  <text x="74" y="145" class="ui" font-size="14" font-weight="600" fill="#795a12">UI illustration · Demo percentages and reset times · Not a live screenshot</text>
+
+  <g filter="url(#shadow)">
+    <rect x="54" y="190" width="558" height="228" rx="18" class="card"/>
+    <rect x="638" y="190" width="588" height="228" rx="18" class="card"/>
+    <rect x="54" y="444" width="558" height="258" rx="18" class="card"/>
+    <rect x="638" y="444" width="588" height="258" rx="18" class="card"/>
+  </g>
+
+  <text x="82" y="230" class="ui label">Codex only</text>
+  <text x="82" y="261" class="ui muted small">Widget when Codex is open</text>
+  <rect x="82" y="283" width="500" height="62" rx="14" fill="#f8fafc" stroke="#e5e9ef"/>
+  <text x="102" y="321" class="ui label">Codex</text>
+  <text x="198" y="321" class="ui small">5h 28%</text>
+  <rect x="266" y="311" width="76" height="5" rx="3" class="barbg"/><rect x="266" y="311" width="55" height="5" rx="3" class="blue"/>
+  <text x="362" y="321" class="ui small">Week 46%</text>
+  <rect x="446" y="311" width="76" height="5" rx="3" class="barbg"/><rect x="446" y="311" width="41" height="5" rx="3" class="teal"/>
+
+  <text x="666" y="230" class="ui label">Antigravity only</text>
+  <text x="666" y="261" class="ui muted small">Separate model pools stay visible</text>
+  <rect x="666" y="283" width="532" height="62" rx="14" fill="#f8fafc" stroke="#e5e9ef"/>
+  <text x="686" y="321" class="ui label">Antigravity</text>
+  <text x="808" y="321" class="ui small">Gemini · 5h 31% · Week 22%</text>
+  <text x="1018" y="346" class="ui muted small">Claude + GPT · 5h 16% · Week 38%</text>
+
+  <text x="82" y="484" class="ui label">Both running</text>
+  <text x="82" y="515" class="ui muted small">Only detected apps appear in the widget</text>
+  <rect x="82" y="540" width="500" height="112" rx="14" fill="#f8fafc" stroke="#e5e9ef"/>
+  <text x="104" y="576" class="ui label">Codex</text>
+  <text x="198" y="576" class="ui small">5h 28% · Week 46%</text>
+  <rect x="198" y="587" width="240" height="4" rx="2" class="barbg"/><rect x="198" y="587" width="173" height="4" rx="2" class="blue"/>
+  <text x="104" y="625" class="ui label">Antigravity</text>
+  <text x="220" y="625" class="ui small">Gemini · 5h 31% · Week 22%</text>
+
+  <text x="666" y="484" class="ui label">Details popup</text>
+  <text x="666" y="515" class="ui muted small">Click for exact reset information and controls</text>
+  <rect x="666" y="535" width="532" height="138" rx="15" fill="#fbfcfe" stroke="#e4e8ef"/>
+  <circle cx="690" cy="561" r="5" fill="#218739"/><text x="706" y="567" class="ui label">Codex</text><text x="1105" y="566" class="ui muted small">Updated 16:32</text>
+  <text x="690" y="597" class="ui muted small">5-hour</text><text x="690" y="622" class="ui small">28% used · 72% left</text><text x="690" y="645" class="ui muted small">Resets 18:42</text>
+  <text x="938" y="597" class="ui muted small">Weekly</text><text x="938" y="622" class="ui small">46% used · 54% left</text><text x="938" y="645" class="ui muted small">Resets Mon 02:00</text>
+  <text x="689" y="691" class="ui muted" font-size="12">All figures in this illustration are fictional demo values.</text>
+</svg>

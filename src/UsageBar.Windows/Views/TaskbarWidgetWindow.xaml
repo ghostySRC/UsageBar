@@ -1,0 +1,54 @@
+<Window x:Class="UsageBar.Windows.Views.TaskbarWidgetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UsageBar" SizeToContent="WidthAndHeight" MinWidth="180" MaxWidth="1180"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Background="Transparent" ShowInTaskbar="False" ShowActivated="False"
+        WindowStartupLocation="Manual" SnapsToDevicePixels="True"
+        MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp"
+        ToolTip="UsageBar · Click for details · Drag the grip to move">
+  <Border x:Name="WidgetBorder" Padding="8,5" CornerRadius="11" Background="{DynamicResource SurfaceBrush}" BorderBrush="#33808080" BorderThickness="1">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Grid.Column="0" Text="▮" FontSize="11" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"
+                 VerticalAlignment="Center" Margin="0,0,8,0" />
+      <ItemsControl Grid.Column="1" ItemsSource="{Binding}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate><StackPanel Orientation="Horizontal" /></ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <StackPanel Orientation="Horizontal" Margin="2,0" ToolTip="{Binding ToolTip}">
+              <TextBlock Text="{Binding ProviderLabel}" FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center"
+                         Margin="0,0,4,0" />
+              <TextBlock Text="{Binding GroupLabel}" FontSize="10" Foreground="{DynamicResource MutedBrush}"
+                         VerticalAlignment="Center" Margin="0,0,5,0" />
+              <StackPanel Orientation="Vertical" Margin="2,0">
+                <StackPanel Orientation="Horizontal">
+                  <TextBlock Text="{Binding FiveHourLabel}" FontSize="10" FontWeight="Medium" Margin="0,0,7,0" />
+                  <TextBlock Text="{Binding WeeklyLabel}" FontSize="10" FontWeight="Medium" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding ShowProgressBars, Converter={StaticResource BooleanToVisibilityConverter}}">
+                  <ProgressBar Width="48" Value="{Binding FiveHourRemaining}" Maximum="100" Margin="0,1,8,0"
+                               Visibility="{Binding HasFiveHourData, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                  <ProgressBar Width="48" Value="{Binding WeeklyRemaining}" Maximum="100" Margin="0,1,0,0"
+                               Visibility="{Binding HasWeeklyData, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </StackPanel>
+              </StackPanel>
+              <TextBlock Text="·" Foreground="{DynamicResource MutedBrush}" Margin="5,0" VerticalAlignment="Center" />
+            </StackPanel>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+      <Border x:Name="DragHandle" Grid.Column="2" Width="12" Margin="6,0,0,0" CornerRadius="4"
+              Background="#12000000" Cursor="SizeAll" ToolTip="Drag to move UsageBar">
+        <TextBlock Text="⋮" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13"
+                   Foreground="{DynamicResource MutedBrush}" />
+      </Border>
+    </Grid>
+  </Border>
+</Window>

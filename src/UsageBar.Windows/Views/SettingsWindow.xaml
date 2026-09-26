@@ -1,0 +1,57 @@
+<Window x:Class="UsageBar.Windows.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UsageBar settings" Width="440" Height="610" MinHeight="540" MaxHeight="760"
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="True" ResizeMode="CanResizeWithGrip"
+        Background="{DynamicResource SurfaceBrush}">
+  <Grid Margin="22,19,22,17">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="0" Margin="0,0,0,14">
+      <TextBlock Text="Settings" FontSize="20" FontWeight="SemiBold" />
+      <TextBlock Text="UsageBar runs in the system tray and stays local to this Windows account."
+                 FontSize="11" Foreground="{DynamicResource MutedBrush}" TextWrapping="Wrap" Margin="0,4,0,0" />
+    </StackPanel>
+    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+      <StackPanel>
+        <TextBlock Text="Monitoring" FontSize="12" FontWeight="SemiBold" Margin="0,0,0,6" />
+        <CheckBox x:Name="ShowCodexBox" Content="Monitor Codex" Margin="0,3" />
+        <CheckBox x:Name="ShowAntigravityBox" Content="Monitor Antigravity" Margin="0,3" />
+        <Border Height="1" Background="#26808080" Margin="0,12,0,11" />
+
+        <TextBlock Text="Display" FontSize="12" FontWeight="SemiBold" Margin="0,0,0,6" />
+        <TextBlock Text="Refresh interval" FontSize="11" Foreground="{DynamicResource MutedBrush}" />
+        <ComboBox x:Name="RefreshIntervalBox" Width="140" HorizontalAlignment="Left" Margin="0,5,0,8">
+          <ComboBoxItem Content="30 seconds" Tag="30" />
+          <ComboBoxItem Content="1 minute" Tag="60" />
+          <ComboBoxItem Content="2 minutes" Tag="120" />
+          <ComboBoxItem Content="5 minutes" Tag="300" />
+        </ComboBox>
+        <TextBlock Text="Percentages show" FontSize="11" Foreground="{DynamicResource MutedBrush}" />
+        <ComboBox x:Name="PercentageModeBox" Width="165" HorizontalAlignment="Left" Margin="0,5,0,8">
+          <ComboBoxItem Content="Usage consumed" Tag="used" />
+          <ComboBoxItem Content="Usage remaining" Tag="remaining" />
+        </ComboBox>
+        <CheckBox x:Name="ShowPercentagesBox" Content="Show percentages" Margin="0,3" />
+        <CheckBox x:Name="ShowBarsBox" Content="Show compact progress bars" Margin="0,3" />
+        <CheckBox x:Name="CompactModeBox" Content="Compact labels" Margin="0,3" />
+        <CheckBox x:Name="WidgetEnabledBox" Content="Show taskbar-edge widget when an app is open" Margin="0,3" />
+        <CheckBox x:Name="AlwaysOnTopBox" Content="Keep widget above other windows" Margin="0,3" />
+        <Button Content="Reset widget position" HorizontalAlignment="Left" Margin="0,5,0,0"
+                Click="ResetPosition_Click" />
+        <Border Height="1" Background="#26808080" Margin="0,12,0,11" />
+
+        <TextBlock Text="Windows" FontSize="12" FontWeight="SemiBold" Margin="0,0,0,6" />
+        <CheckBox x:Name="StartWithWindowsBox" Content="Start UsageBar with Windows" Margin="0,3" />
+        <TextBlock Text="Uses this account’s Startup setting. Administrator access is not required."
+                   FontSize="10" Foreground="{DynamicResource MutedBrush}" TextWrapping="Wrap" Margin="20,1,0,5" />
+      </StackPanel>
+    </ScrollViewer>
+    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+      <Button Content="Close" MinWidth="78" Click="Close_Click" />
+    </StackPanel>
+  </Grid>
+</Window>

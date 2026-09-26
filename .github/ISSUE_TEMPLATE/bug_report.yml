@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible UsageBar problem.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include account usage values, tokens, cookies, full process command lines, or unredacted logs.
+  - type: input
+    id: version
+    attributes:
+      label: UsageBar version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Affected provider
+      options:
+        - Codex
+        - Antigravity
+        - Both
+        - Installer or UI
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true

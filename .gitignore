@@ -1,0 +1,16 @@
+.vs/
+.vscode/
+**/bin/
+**/obj/
+**/TestResults/
+artifacts/
+publish/
+*.user
+*.suo
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+appsettings.*.local.json
+UsageBar-Setup.exe

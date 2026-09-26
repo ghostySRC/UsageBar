@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress
+      - name: Build, test, and package
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME.TrimStart('v')
+          ./tools/Build-Release.ps1 -Version $version
+      - name: Create GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $notes = @"
+          ## UsageBar $tag
+
+          A lightweight Windows 11 taskbar monitor for real Codex and Antigravity five-hour and weekly usage windows.
+
+          ### Install
+
+          Download and run `UsageBar-Setup.exe`. The per-user installer does not require administrator rights.
+
+          ### Provider notes
+
+          Codex usage comes from the local Codex App Server. Antigravity usage comes from its local language-server quota route, which is not a documented stable API and can change with an Antigravity update.
+          "@
+          Set-Content -Path release-notes.md -Value $notes -Encoding utf8
+          gh release create $tag artifacts/installer/UsageBar-Setup.exe artifacts/publish/UsageBar.exe --title "UsageBar $tag" --notes-file release-notes.md
